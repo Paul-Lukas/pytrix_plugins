@@ -1,0 +1,11 @@
+<h1 onclick="sendInput("1")">Ecken</h1>
+<h1 onclick="sendInput("2")">Linien</h1>
+
+<script>
+function sendInput(inp) {
+	var xmlHttp = new XMLHttpRequest();
+  var url = `/plugin/{{ start_id }}/input?=&{inp}`
+	xmlHttp.open( "GET", url, false ); // false for synchronous request
+	xmlHttp.send( null );
+}
+</script>
