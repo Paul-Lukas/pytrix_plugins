@@ -1,0 +1,33 @@
+<h1 onclick="startPlugin()">START PLUGIN: {{ start_name }}</h1>
+<h1 onclick="addred()">add red</h1>
+<h1 onclick="addblue()">add blue</h1>
+<h1 onclick="addgreen()">add green</h1>
+<h1 onclick="addyellow()">add yellow</h1>
+
+<script>
+function startPlugin() {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?wertaendern=1", false ); // false for synchronous request
+	xmlHttp.send( null );
+}
+function addred() {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?wertaendern=2", false ); // false for synchronous request
+	xmlHttp.send( null );
+}
+function addblue() {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?wertaendern=3", false ); // false for synchronous request
+	xmlHttp.send( null );
+}
+function addgreen() {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?wertaendern=4", false ); // false for synchronous request
+	xmlHttp.send( null );
+}
+function addyellow() {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?wertaendern=5", false ); // false for synchronous request
+	xmlHttp.send( null );
+}
+</script>
