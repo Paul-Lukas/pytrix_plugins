@@ -223,6 +223,7 @@ class FlappyBird(BasePlugin):
 
 
     def input(self, inp):
+        print("INPUT ANGEKOMMEN IN FLAPPYBIRD.PY"
         self.jump()
 
     def get_html(self):
