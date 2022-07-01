@@ -1,9 +1,9 @@
-<h1 onclick="startPlugin()">START PLUGIN: {{ start_name }}</h1>
+<h1 onclick="jump_bird()">JUMP</h1>
 
 <script>
-function startPlugin() {
+function jump_bird() {
 	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?start_id={{ start_id }}", false ); // false for synchronous request
+	xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false ); // false for synchronous request
 	xmlHttp.send( null );
 }
 </script>
