@@ -596,8 +596,51 @@ class Tetrix(BasePlugin):
             print("ccw")
 
     def get_html(self):
-        filee = open("webpage.html","r")
-        bla = filee.read()
-        filee.close()
-        return bla
+        return"""<h1>Tetryx_6.9.1</h1>
+<table border="1" align="left">
+    <tr>
+        <th onclick="ccw()">ccw_move</th>
+        <th onclick="test()">alaaaaaaaaaaaaaarm</th>
+        <th onclick="cw()">cw_move</th>
+    </tr>
+    <tr>
+        <td onclick="l()">l_move</td>
+        <td onclick="d()">d_move</td>
+        <td onclick="r()">r_move</td>
+    </tr>
+</table>
+<script>
+    function r() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false );
+        xmlHttp.send( null );
+    }
+    function l() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=2", false );
+        xmlHttp.send( null );
+    }
+    function d() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=3", false );
+        xmlHttp.send( null );
+    }
+    function cw() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=4", false );
+        xmlHttp.send( null );
+    }
+    function ccw() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=5", false );
+        xmlHttp.send( null );
+    }
+    function test() {
+        alert("Schauen wir mal ob das geht. Ja, das tut es wohl.")
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
+        xmlHttp.send( null );
+    }
+
+</script>"""
              
