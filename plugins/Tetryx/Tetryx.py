@@ -571,7 +571,6 @@ class Tetrix(BasePlugin):
         self.mainLoop()
 
     def input(self, inp):
-        print(inp)
         randomVar = int(inp.get("Wert"))
         if(randomVar == 1):
             self.rMove("blub")
@@ -584,7 +583,6 @@ class Tetrix(BasePlugin):
         if(randomVar == 5):
             self.ccwRotation("blub")
         if(randomVar == 6):
-            print("t1")
             self.test("blub")
 
     def get_html(self):
@@ -601,6 +599,12 @@ class Tetrix(BasePlugin):
      </tr>
     </table>
     <script>
+    document.addEventListener('keydown', (event) => {
+        var name = event.key;
+        var code = event.code;
+        // Alert the key name and key code on keydown
+        alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+    }, false);
     function t() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
