@@ -510,6 +510,10 @@ class Tetrix(BasePlugin):
                 self.tetromino = list(reversed(list(zip(*self.tetromino))))
                 self.tetromino_rewrite()
                 self.game_refresh()
+          
+    def test(self,event):
+        if self.game_run:
+            print("t2")
     
     
     def ccwRotation(self,event):
@@ -578,13 +582,16 @@ class Tetrix(BasePlugin):
             self.cwRotation("blub")
         if(randomVar == 5):
             self.ccwRotation("blub")
+        if(randomVar == 6):
+            print("t1")
+            self.test("blub")
 
     def get_html(self):
         return """<h1>Tetryx_6.9</h1>
     <table border="1" align="left">
      <tr>
       <th onclick="ccw()">ccw_move</th>
-      <th> </th>
+      <th onclick="t()">ccw_move </th>
       <th onclick="cw()">cw_move</th>
      </tr><tr>
       <td onclick="l()">l_move</td>
@@ -593,6 +600,10 @@ class Tetrix(BasePlugin):
      </tr>
     </table>
     <script>
+    function t() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
+        xmlHttp.send( null );
     function r() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false );
