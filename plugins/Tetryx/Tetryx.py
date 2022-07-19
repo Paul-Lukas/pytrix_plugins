@@ -598,11 +598,6 @@ class Tetrix(BasePlugin):
       <td onclick="r()">r_move</td>
      </tr>
     </table>
-    KeyA
-    KeyD
-    KeyS
-    ArrowLeft
-    ArrowRight
     <script>
     document.addEventListener('keydown', (event) => {
         var name = event.key;
