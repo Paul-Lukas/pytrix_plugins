@@ -214,16 +214,11 @@ class FlappyBird(BasePlugin):
             #self.screensaver()
             self.scorecounter()
             
-            """
             for i in range(2):
                 self.gravity()
                 self.translator()
                 time.sleep(0.1)
                 i += 1
-            """
-            self.screensaver()
-            self.translator()
-            time.sleep(0.1)
         return "Stop"
 
 
