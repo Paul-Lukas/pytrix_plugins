@@ -88,12 +88,12 @@ class FlappyBird(BasePlugin):
 
 
     def gravity(self):
-        if self.fall_duration < 4:
+        if self.fall_duration < 7:
             self.fall_duration += 1
             print("yallah gravity")
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) and (current_position < (self.height - 1)):
-            next_position = current_position + self.fall_duration  # previously 2
+            next_position = current_position + self.fall_duration div 2  # previously 2
             if self.hitdetection(2) == 0:
                 self.clear(1)
                 self.game[1][next_position] = 1
@@ -129,7 +129,7 @@ class FlappyBird(BasePlugin):
         if hitdetected == 1:
             print("! Hit detected")
             self.clear(1)
-            self.game[death_position[1]][death_position[2]] = 1
+            self.game[death_position[0]][death_position[1]] = 1
             self.gameover = 1
         return hitdetected
 
@@ -227,12 +227,10 @@ class FlappyBird(BasePlugin):
             self.checkPipes()
             #self.screensaver()
             self.scorecounter()
+            self.gravity()
+            self.translator()
+            time.sleep(0.15)
             
-            for i in range(2):
-                self.gravity()
-                self.translator()
-                time.sleep(0.1)
-                i += 1
         return "Stop"
 
 
