@@ -88,7 +88,7 @@ class FlappyBird(BasePlugin):
 
 
     def gravity(self):
-        if self.fall_duration > 4:
+        if self.fall_duration < 4:
             self.fall_duration += 1
             print("yallah gravity")
         current_position = self.getCurrentPlayerPosition()
