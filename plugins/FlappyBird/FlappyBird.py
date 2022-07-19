@@ -12,6 +12,8 @@ class FlappyBird(BasePlugin):
     cLevel = 0
     gameover = 0
     score = 0
+    jump_leap = 3
+    fall_duration = 0
 
 
     def __init__(self, app, output):
@@ -76,41 +78,48 @@ class FlappyBird(BasePlugin):
 
 
     def jump(self):
+        fall_duration = 0
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) & (current_position > 1):
-            nPosition = current_position - 3  # previously 4
+            nPosition = current_position - self.jump_leap  # previously 4
             if self.hitdetection(1) == 0:
                 self.clear(1)
                 self.game[1][nPosition] = 1
 
 
     def gravity(self):
+        if fall_duration > 4
+            fall_duration += 1
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) and (current_position < (self.height - 1)):
-            next_position = current_position + 1  # previously 2
+            next_position = current_position + fall_duration  # previously 2
             if self.hitdetection(2) == 0:
                 self.clear(1)
                 self.game[1][next_position] = 1
 
 
+
     def hitdetection(self, case) -> int:
         hitdetected = 0
+        death_position = 0
         cPlayerPos = self.getCurrentPlayerPosition()
         if (cPlayerPos < (self.height - 1)) & (cPlayerPos > 1):  # Out of bounds
             if case == 1:  # Jump
-                if self.game[2][cPlayerPos - 1] == 2:  # forward up
-                    hitdetected = 1
-                elif self.game[2][cPlayerPos - 2] == 2:  # forward 2 up
-                    hitdetected = 1
-                elif self.game[2][cPlayerPos - 3] == 2:  # forward 3 up
-                    hitdetected = 1
-                elif self.game[1][cPlayerPos - 1] == 2:  # on top
+                for i in range(self.jump_leap):
+                    if self.game[2][cPlayerPos - i] == 2: # forward 1,2,3 up
+                        death_position = (2, cPlayerPos - i)
+                        hitdetection = 1
+                        
+                if self.game[1][cPlayerPos - 1] == 2:  # on top
+                    death_position = (1, cPlayerPos - 1)
                     hitdetected = 1
 
             if case == 2:  # Gravity
                 if self.game[2][cPlayerPos + 1] == 2:  # forward down
+                    death_position = (2, cPlayerPos + 1)
                     hitdetected = 1
                 elif self.game[1][cPlayerPos + 1] == 2:  # down
+                    death_position 0 (1, cPlayerPos + 1)
                     hitdetected = 1
         else:
             print("Player Position out of bounds")
@@ -118,6 +127,8 @@ class FlappyBird(BasePlugin):
 
         if hitdetected == 1:
             print("! Hit detected")
+            self.clear(1)
+            self.game[death_position[1]][death_position[2]] = 1
             self.gameover = 1
         return hitdetected
 
