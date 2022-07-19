@@ -10,7 +10,7 @@ import time
 class Tetrix(BasePlugin):
     def __init__(self, app, output):
         super().__init__(app, output)
-        self.pluginName = "Jan_stinkt"
+        self.pluginName = "EpicPl_stinkt"
         self.version = "6.9"
     
 #--------------------------
@@ -602,26 +602,23 @@ class Tetrix(BasePlugin):
     document.addEventListener('keydown', (event) => {
         var name = event.key;
         var code = event.code;
-        switch(name){
-            case "KeyA":
+            if name== "a":
                 l();
                 break;
-            case "KeyD":
+            if name== "d":
                 r();
                 break;
-            case "KeyS":
+            if name== "s":
                 d();
                 break;
-            case "ArrowLeft":
+            if name== "ArrowLeft":
                 ccw();
                 break;
-            case "ArrowRight":
+            if name== "ArrowRight":
                 cw();
                 break;
-            default:
-                alert(name);
-                break;
-          }
+         
+      
 
     }, false);
     
