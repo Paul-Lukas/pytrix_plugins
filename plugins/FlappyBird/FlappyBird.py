@@ -14,6 +14,7 @@ class FlappyBird(BasePlugin):
     score = 0
     jump_leap = 3
     fall_duration = 0
+    fall_leap = 0
 
 
     def __init__(self, app, output):
@@ -79,6 +80,7 @@ class FlappyBird(BasePlugin):
 
     def jump(self):
         self.fall_duration = 0
+        self.fall_leap = 0
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) & (current_position > 1):
             nPosition = current_position - self.jump_leap  # previously 4
@@ -88,12 +90,12 @@ class FlappyBird(BasePlugin):
 
 
     def gravity(self):
-        if self.fall_duration < 7:
+        if self.fall_duration < 10:
             self.fall_duration += 1
-            print("yallah gravity")
+            self.fall_leap = self.getGravity(self.fall_duration)
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) and (current_position < (self.height - 1)):
-            next_position = current_position + self.fall_duration//2  # previously 2
+            next_position = current_position + self.fall_leap  # previously 2
             if self.hitdetection(2) == 0:
                 self.clear(1)
                 self.game[1][next_position] = 1
@@ -112,15 +114,15 @@ class FlappyBird(BasePlugin):
                         hitdetection = 1
                         
                 if self.game[1][cPlayerPos - 1] == 2:  # on top
-                    death_position = (1, cPlayerPos - 1)
+                    death_position = (1, cPlayerPos)
                     hitdetected = 1
 
             if case == 2:  # Gravity
                 if self.game[2][cPlayerPos + 1] == 2:  # forward down
-                    death_position = (2, cPlayerPos + 1)
+                    death_position = (2, cPlayerPos)
                     hitdetected = 1
                 elif self.game[1][cPlayerPos + 1] == 2:  # down
-                    death_position = (1, cPlayerPos + 1)
+                    death_position = (1, cPlayerPos)
                     hitdetected = 1
         else:
             print("Player Position out of bounds")
@@ -183,6 +185,21 @@ class FlappyBird(BasePlugin):
         }
         return rgbTuple.get(value, -1)
 
+    def getGravity(self, value):
+        duration = {
+            0: 1,
+            1: 1,
+            2: 1,
+            3: 1,
+            4: 2,
+            5: 2,
+            6: 3,
+            7: 3,
+            8: 5,
+            9: 7
+        }
+        return duration.get(value, -1)
+    
 
     def scorecounter(self):
         if self.cX == 1:
