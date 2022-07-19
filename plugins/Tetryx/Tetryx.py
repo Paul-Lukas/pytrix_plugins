@@ -598,12 +598,34 @@ class Tetrix(BasePlugin):
       <td onclick="r()">r_move</td>
      </tr>
     </table>
+    KeyA
+    KeyD
+    KeyS
+    ArrowLeft
+    ArrowRight
     <script>
     document.addEventListener('keydown', (event) => {
         var name = event.key;
         var code = event.code;
-        // Alert the key name and key code on keydown
-        alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+        switch({name}){
+            case "KeyA":
+                l();
+                break;
+            case "KeyD":
+                r();
+                break;
+            case "KeyS":
+                d();
+                break;
+            case "ArrowLeft":
+                ccw();
+                break;
+            case "ArrowRight":
+                cw();
+                break;
+            default:
+                t();
+
     }, false);
     function t() {
         var xmlHttp = new XMLHttpRequest();
