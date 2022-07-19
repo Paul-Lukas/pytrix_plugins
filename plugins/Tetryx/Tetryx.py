@@ -594,35 +594,29 @@ class Tetrix(BasePlugin):
     </table>
     <script>
     function r() {
-        alert("1/r")
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false );
         xmlHttp.send( null );
     }
     function l() {
-        alert("2/l")
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=2", false );
         xmlHttp.send( null );
     }
     function d() {
-        alert("3/d")
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=3", false );
         xmlHttp.send( null );
     }
     function cw() {
-        alert("4/cw")
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=4", false );
         xmlHttp.send( null );
     }
     function ccw() {
-        alert("5/ccw")
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=5", false );
         xmlHttp.send( null );
     }
-
     </script>"""
              
