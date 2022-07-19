@@ -10,7 +10,7 @@ import time
 class Tetrix(BasePlugin):
     def __init__(self, app, output):
         super().__init__(app, output)
-        self.pluginName = "EpicPl_stinkt"
+        self.pluginName = "Jan_stinkt"
         self.version = "6.9"
     
 #--------------------------
