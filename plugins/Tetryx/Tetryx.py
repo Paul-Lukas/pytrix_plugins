@@ -604,6 +604,7 @@ class Tetrix(BasePlugin):
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
         xmlHttp.send( null );
+    }
     function r() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false );
