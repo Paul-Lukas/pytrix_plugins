@@ -602,24 +602,11 @@ class Tetrix(BasePlugin):
     document.addEventListener('keydown', (event) => {
         var name = event.key;
         var code = event.code;
-            if name== "a":
-                l();
-                break;
-            if name== "d":
-                r();
-                break;
-            if name== "s":
-                d();
-                break;
-            if name== "ArrowLeft":
-                ccw();
-                break;
-            if name== "ArrowRight":
-                cw();
-                break;
-         
-      
-
+            if (name== "a") l();
+            if (name== "d") r();
+            if (name== "s") d();
+            if (name== "ArrowLeft") ccw();
+            if (name== "ArrowRight") cw();
     }, false);
     
     function t() {
