@@ -572,7 +572,7 @@ class Tetrix(BasePlugin):
 
     def input(self, inp):
         print(inp)
-        randomVar = inp.get("Wert")
+        randomVar = str(inp.get("Wert"))
         if(randomVar == 1):
             self.rMove("blub")
         if(randomVar == 2):
