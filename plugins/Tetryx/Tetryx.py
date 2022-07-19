@@ -619,7 +619,7 @@ class Tetrix(BasePlugin):
                 cw();
                 break;
             default:
-                t();
+                alert(name);
                 break;
           }
 
