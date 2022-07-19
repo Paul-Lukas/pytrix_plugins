@@ -93,7 +93,7 @@ class FlappyBird(BasePlugin):
             print("yallah gravity")
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) and (current_position < (self.height - 1)):
-            next_position = current_position + self.fall_duration div 2  # previously 2
+            next_position = current_position + self.fall_duration//2  # previously 2
             if self.hitdetection(2) == 0:
                 self.clear(1)
                 self.game[1][next_position] = 1
