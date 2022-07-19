@@ -78,7 +78,7 @@ class FlappyBird(BasePlugin):
     def jump(self):
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) & (current_position > 1):
-            nPosition = current_position - 2  # previously 4
+            nPosition = current_position - 3  # previously 4
             if self.hitdetection(1) == 0:
                 self.clear(1)
                 self.game[1][nPosition] = 1
@@ -101,6 +101,8 @@ class FlappyBird(BasePlugin):
                 if self.game[2][cPlayerPos - 1] == 2:  # forward up
                     hitdetected = 1
                 elif self.game[2][cPlayerPos - 2] == 2:  # forward 2 up
+                    hitdetected = 1
+                elif self.game[2][cPlayerPos - 3] == 2:  # forward 3 up
                     hitdetected = 1
                 elif self.game[1][cPlayerPos - 1] == 2:  # on top
                     hitdetected = 1
