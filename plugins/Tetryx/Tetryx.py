@@ -571,7 +571,7 @@ class Tetrix(BasePlugin):
         self.mainLoop()
 
     def input(self, inp):
-        print("t0")
+        print(inp)
         randomVar = inp.get("Wert")
         if(randomVar == 1):
             self.rMove("blub")
