@@ -78,7 +78,7 @@ class FlappyBird(BasePlugin):
 
 
     def jump(self):
-        fall_duration = 0
+        self.fall_duration = 0
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) & (current_position > 1):
             nPosition = current_position - self.jump_leap  # previously 4
@@ -88,11 +88,11 @@ class FlappyBird(BasePlugin):
 
 
     def gravity(self):
-        if fall_duration > 4
-            fall_duration += 1
+        if self.fall_duration > 4:
+            self.fall_duration += 1
         current_position = self.getCurrentPlayerPosition()
         if (self.gameover == 0) and (current_position < (self.height - 1)):
-            next_position = current_position + fall_duration  # previously 2
+            next_position = current_position + self.fall_duration  # previously 2
             if self.hitdetection(2) == 0:
                 self.clear(1)
                 self.game[1][next_position] = 1
