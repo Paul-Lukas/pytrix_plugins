@@ -620,8 +620,11 @@ class Tetrix(BasePlugin):
                 break;
             default:
                 t();
+                break;
+          }
 
     }, false);
+    
     function t() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
