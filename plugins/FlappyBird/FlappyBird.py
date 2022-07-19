@@ -119,7 +119,7 @@ class FlappyBird(BasePlugin):
                     death_position = (2, cPlayerPos + 1)
                     hitdetected = 1
                 elif self.game[1][cPlayerPos + 1] == 2:  # down
-                    death_position 0 (1, cPlayerPos + 1)
+                    death_position = (1, cPlayerPos + 1)
                     hitdetected = 1
         else:
             print("Player Position out of bounds")
