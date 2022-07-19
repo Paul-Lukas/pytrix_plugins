@@ -607,7 +607,7 @@ class Tetrix(BasePlugin):
     document.addEventListener('keydown', (event) => {
         var name = event.key;
         var code = event.code;
-        switch({name}){
+        switch(name){
             case "KeyA":
                 l();
                 break;
