@@ -131,7 +131,7 @@ class FlappyBird(BasePlugin):
         if hitdetected == 1:
             print("! Hit detected")
             self.clear(1)
-            self.game[death_position[0]][death_position[1]] = 1
+            #self.game[death_position[0]][death_position[1]] = 1
             self.gameover = 1
         return hitdetected
 
