@@ -98,7 +98,10 @@ class FlappyBird(BasePlugin):
             next_position = current_position + self.fall_leap  # previously 2
             if self.hitdetection(2) == 0:
                 self.clear(1)
-                self.game[1][next_position] = 1
+                if (next_position > self.width):
+                    self.game[1][self.width] = 1
+                else:
+                    self.game[1][next_position] = 1
 
 
 
