@@ -1222,7 +1222,7 @@ class Tetrix(BasePlugin):
 
     def scorer(self):
         bi = bin(self.game_lines)
-        pix = bi[2:]
+        pix = bi[:1:-1]
         pixMatrix = [0 for x in range(len(pix))]
         self.fill_all((0,0,0))
         for x in range(len(pix)):
