@@ -1210,7 +1210,6 @@ class Tetrix(BasePlugin):
         print("TESSSST")
         global tetromino_yPos
         while (self.game_run):
-            if :
                 self.dMove("blub")
                 if self.dummyMode:
                     time.sleep(self.game_speed/2)
