@@ -569,7 +569,7 @@ class Tetrix(BasePlugin):
         self.game_refresh()
         
         self.mainLoop()
-        print(self.game_lines)
+        print("\n\n\n"+str(self.game_lines)+"\n\n\n")
 
     def input(self, inp):
         randomVar = int(inp.get("Wert"))
