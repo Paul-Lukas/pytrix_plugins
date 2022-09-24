@@ -51,7 +51,60 @@ class Tetrix(BasePlugin):
         
 
     def input(self, inp):
-        pass
+        bla = int(inp.get("Wert"))
     
     def get_html(self):
-        return """<h1>Tetryx_6.9</h1>"""
+        return """<h1>Tetryx_6.9</h1>
+        <table border="1" align="left">
+     <tr>
+      <th onclick="ccw()">ccw_move</th>
+      <th onclick="t()">test</th>
+      <th onclick="cw()">cw_move</th>
+     </tr><tr>
+      <td onclick="l()">l_move</td>
+      <td onclick="d()">d_move</td>
+      <td onclick="r()">r_move</td>
+     </tr>
+    </table>
+    <script>
+    document.addEventListener('keydown', (event) => {
+        var name = event.key;
+        var code = event.code;
+            if (name== "a") l();
+            if (name== "d") r();
+            if (name== "s") d();
+            if (name== "ArrowLeft") ccw();
+            if (name== "ArrowRight") cw();
+    }, false);
+    
+    function t() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
+        xmlHttp.send( null );
+    }
+    function r() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false );
+        xmlHttp.send( null );
+    }
+    function l() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=2", false );
+        xmlHttp.send( null );
+    }
+    function d() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=3", false );
+        xmlHttp.send( null );
+    }
+    function cw() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=4", false );
+        xmlHttp.send( null );
+    }
+    function ccw() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=5", false );
+        xmlHttp.send( null );
+    }
+    </script>"""
