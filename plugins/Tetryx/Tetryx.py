@@ -348,6 +348,7 @@ class Tetrix(BasePlugin):
     def game_over(self):
         global game_run
         self.game_run = False
+        print("HI2")
     """
     !!! Score Anzeige!
     """
@@ -410,6 +411,7 @@ class Tetrix(BasePlugin):
             self.game_place_nextTetromino()
         else:
             self.game_over()
+            print("HIIIII")
     
     
     """
