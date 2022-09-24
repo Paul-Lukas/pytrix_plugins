@@ -10,16 +10,16 @@ import time
 class Tetrix(BasePlugin):
     def __init__(self, app, output):
         super().__init__(app, output)
-        self.pluginName = "EpicPl_stinkt"
-        self.version = "6.9"
+        self.pluginName = "Tetris"
+        self.version = "3.14"
     
 #--------------------------
     boardMode = True
     
-    bgMode = False
+    bgMode = True
     epilepsipepsiMode = False
     dummyMode = False
-    randomRotations = False
+    randomRotations = True
     
     defaultBg = (1,1,1)
 #--------------------------
