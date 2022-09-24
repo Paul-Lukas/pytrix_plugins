@@ -410,8 +410,9 @@ class Tetrix(BasePlugin):
         if randomCheckVar:
             self.game_place_nextTetromino()
         else:
-            self.game_over()
             print("HIIIII")
+            self.game_over()
+            
     
     
     """
@@ -556,6 +557,8 @@ class Tetrix(BasePlugin):
                     time.sleep(self.game_speed/2)
                 else:
                     time.sleep(self.game_speed)
+            else:
+                print("OMG_TEST")
     
     
     """
