@@ -8,7 +8,7 @@ class Tetrix(BasePlugin):
         self.version = "3.14"
         
     def getColor(self,inp):
-        color = [bg for i in range(11)]
+        color = [(0,0,0) for i in range(11)]
         
         color[1] = (246,206,55)
         color[2] = (221,91,35)
