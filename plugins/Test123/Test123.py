@@ -4,7 +4,7 @@ from ..basePlugin import BasePlugin
 class Testris(BasePlugin):
     def __init__(self, app, output):
         super().__init__(app, output)
-        self.pluginName = "Testris"
+        self.pluginName = "(test)"
         self.version = "pre 0.1"
         
     def button(self):
