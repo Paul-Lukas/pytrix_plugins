@@ -10,7 +10,6 @@ class Tetrix(BasePlugin):
     def main(num_Digits):
         n = 0
         Pi = 0
-        global Pi, n
         getcontext().prec = num_Digits+2
         n = 0
         a = 1
