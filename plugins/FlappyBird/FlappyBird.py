@@ -247,7 +247,7 @@ class FlappyBird(BasePlugin):
             self.gravity()
             self.translator()
             time.sleep(0.15)
-            
+        print("Score: " + self.score)
         return "Stop"
 
 
