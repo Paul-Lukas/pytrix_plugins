@@ -323,7 +323,7 @@ class Tetrix(BasePlugin):
         self.nextTetromino_number = Temp[1]
     
         self.tetromino_xPos = self.tetromino_startPos
-        self.tetromino_yPos = 0
+        self.tetromino_yPos = 2
         self.tetromino_rewrite()
     
     
@@ -956,7 +956,7 @@ class Tetrix(BasePlugin):
         self.nextTetromino_number = Temp[1]
     
         self.tetromino_xPos = self.tetromino_startPos
-        self.tetromino_yPos = 0
+        self.tetromino_yPos = 2
         if self.randomRotations:
             for x in range(random.randint(0, 3)):
                 self.tetromino = list(reversed(list(zip(*self.tetromino))))
@@ -987,7 +987,7 @@ class Tetrix(BasePlugin):
         self.nextTetromino_number = Temp[1]
     
         self.tetromino_xPos = self.tetromino_startPos
-        self.tetromino_yPos = 0
+        self.tetromino_yPos = 2
         self.tetromino_rewrite()
     
     
