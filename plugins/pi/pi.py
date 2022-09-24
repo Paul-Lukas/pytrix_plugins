@@ -40,7 +40,7 @@ class Tetrix(BasePlugin):
     def run(self):
         pi = list(str(self.main(500)))
         x = 0
-        pixelBoard = [[0 for i in range(30)] for j in range(15)]
+        pixelBoard = [[0 for i in range(15)] for j in range(30)]
         for a in range(30):
             for b in range(15):
                 pixelBoard[a][b] = pi[x]
