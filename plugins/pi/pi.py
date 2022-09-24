@@ -54,4 +54,4 @@ class Tetrix(BasePlugin):
         pass
     
     def get_html(self):
-        return ""
+        return """<h1>Tetryx_6.9</h1>"""
