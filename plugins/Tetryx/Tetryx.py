@@ -562,6 +562,7 @@ class Tetrix(BasePlugin):
     
 
     def scorer(self):
+        print("Test")
         bi = bin(self.game_lines)
         pix = bi[2:]
         pixMatrix = [0 for x in range(len(pix))]
