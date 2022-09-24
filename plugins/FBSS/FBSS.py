@@ -256,6 +256,6 @@ class FlappyBird(BasePlugin):
         self.jump()
 
     def get_html(self):
-        path = os.path.join(pathlib.Path(__file__).parent.resolve(), 'FlappyBird.html')
+        path = os.path.join(pathlib.Path(__file__).parent.resolve(), 'FBSS.html')
         with open(path, "r") as f:
             return f.read()
