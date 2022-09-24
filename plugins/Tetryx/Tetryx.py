@@ -17,7 +17,7 @@ class Tetrix(BasePlugin):
     boardMode = True
     
     bgMode = True
-    epilepsipepsiMode = False
+    epilepsipepsiMode = True
     dummyMode = False
     randomRotations = True
     
