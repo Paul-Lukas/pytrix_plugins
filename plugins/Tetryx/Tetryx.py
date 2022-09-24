@@ -571,7 +571,7 @@ class Tetrix(BasePlugin):
         bi = bin(self.game_lines)
         pix = bi[2:]
         pixMatrix = [0 for x in range(len(pix))]
-        self.fill_all((0,0,0))
+        self.out.fill_all((0,0,0))
         for x in range(len(pix)):
             pixMatrix[x] = pix[x]
             self.out[x, 0] = (int(pix[x])*255, 0, 0)
