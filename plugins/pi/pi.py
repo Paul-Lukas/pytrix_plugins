@@ -41,8 +41,6 @@ class Tetrix(BasePlugin):
         run = True
 
         while run:
-            if print_n:
-                print(n)
             A = (a+b)/2
             B = Decimal(a*b).sqrt()
             S = s - 2**n * (a-A)**2
