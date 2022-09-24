@@ -1216,8 +1216,8 @@ class Tetrix(BasePlugin):
                     time.sleep(self.game_speed/2)
                     self.randommove()
                     time.sleep(self.game_speed/2)
-                else:
-                    time.sleep(self.game_speed)
+            else:
+                time.sleep(self.game_speed)
         print(self.game_lines)
         print("\n\n\n"+str(self.game_lines)+"\n\n\n")
     
