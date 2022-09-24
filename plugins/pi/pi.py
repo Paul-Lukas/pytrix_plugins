@@ -7,7 +7,7 @@ class Tetrix(BasePlugin):
         self.pluginName = "Pi"
         self.version = "3.14"
 
-    def main(num_Digits):
+    def main(self,num_Digits):
         n = 0
         Pi = 0
         getcontext().prec = num_Digits+2
@@ -40,7 +40,7 @@ class Tetrix(BasePlugin):
 
 
     def run(self):
-        pi = list(str(self.main(30*15)))
+        pi = list(str(self.main(450)))
         x = 0
         pixelBoard = [[0 for i in range(30)] for j in range(15)]
         for a in range(30):
