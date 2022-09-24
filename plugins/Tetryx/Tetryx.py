@@ -76,7 +76,18 @@ class Tetrix(BasePlugin):
             returnEr = (0,                 int(255/num*index),  255)
         return returnEr
     
-    
+
+    def scorer(self):
+        bi = bin(self.game_lines)
+        pix = bi[:1:-1]
+        pixMatrix = [0 for x in range(len(pix))]
+        for x in range(len(pix)):
+            pixMatrix[x] = pix[x]
+            self.out[x, 0] = (int(pix[x])*255, 0, 0)
+        self.out.submit_all()
+        print(pixMatrix)
+
+        
     def getColor(self,x):
         """
         Creates Color Values for a specific Tetromino
@@ -281,7 +292,7 @@ class Tetrix(BasePlugin):
         self.nextTetromino_number = Temp[1]
     
         self.tetromino_xPos = self.tetromino_startPos
-        self.tetromino_yPos = 0
+        self.tetromino_yPos = 2
         if self.randomRotations:
             for x in range(random.randint(0, 3)):
                 self.tetromino = list(reversed(list(zip(*self.tetromino))))
@@ -406,6 +417,7 @@ class Tetrix(BasePlugin):
             """
             !!! Landing-Animation
             """
+        self.scorer()
     
         if randomCheckVar:
             self.game_place_nextTetromino()
@@ -1200,7 +1212,8 @@ class Tetrix(BasePlugin):
             self.cwRotation("blub")
         if(randomVar == 5):
             self.ccwRotation("blub")
-    
+
+
     
     """
     ---------------gameloop Functions------------------------------------------
@@ -1222,19 +1235,7 @@ class Tetrix(BasePlugin):
     """
     ---------------game start--------------------------------------------------
     """
-    
 
-    def scorer(self):
-        bi = bin(self.game_lines)
-        pix = bi[:1:-1]
-        pixMatrix = [0 for x in range(len(pix))]
-        self.out.fill_all((0,0,0))
-        self.out.submit_all()
-        for x in range(len(pix)):
-            pixMatrix[x] = pix[x]
-            self.out[x, 0] = (int(pix[x])*255, 0, 0)
-        self.out.submit_all()
-        print(pixMatrix)
         
         
             
