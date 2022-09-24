@@ -1228,7 +1228,7 @@ class Tetrix(BasePlugin):
         bi = bin(self.game_lines)
         pix = bi[:1:-1]
         pixMatrix = [0 for x in range(len(pix))]
-        self.fill_all((0,0,0))
+        self.out.fill_all((0,0,0))
         self.out.submit_all()
         for x in range(len(pix)):
             pixMatrix[x] = pix[x]
