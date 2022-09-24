@@ -6,8 +6,31 @@ class Tetrix(BasePlugin):
         super().__init__(app, output)
         self.pluginName = "Pi"
         self.version = "3.14"
-
-    def main(self,num_Digits):
+        
+    def getColor(inp):
+        color = [bg for i in range(11)]
+        
+        color[1] = (246,206,55)
+        color[2] = (221,91,35)
+        color[3] = (214,40,31)
+        color[4] = (187,38,65)
+        color[5] = (95,61,59)
+        color[6] = (109,81,118)
+        color[7] = (1,96,162)
+        color[8] = (48,143,187)
+        color[9] = (62,191,148)
+        color[0] = (49,69,59)
+        
+        color[10] = color[0]
+        """
+        outp = [0,0,0]
+        for x in range(3):
+            outp[x] = color[inp][x]-20
+        return (outp[0],outp[1],outp[2])
+        """
+        return color[inp]
+    
+    def main(num_Digits):
         n = 0
         Pi = 0
         getcontext().prec = num_Digits+2
@@ -18,6 +41,8 @@ class Tetrix(BasePlugin):
         run = True
 
         while run:
+            if print_n:
+                print(n)
             A = (a+b)/2
             B = Decimal(a*b).sqrt()
             S = s - 2**n * (a-A)**2
@@ -38,12 +63,12 @@ class Tetrix(BasePlugin):
 
 
     def run(self):
-        pi = list(str(self.main(500)))
+        pi = list(str(self.main(30*15)))
         x = 0
-        pixelBoard = [[0 for i in range(15)] for j in range(30)]
+        pixelBoard = [[0 for i in range(30)] for j in range(15)]
         for a in range(30):
             for b in range(15):
-                pixelBoard[a][b] = pi[x]
+                pixelboard[a][b] = self.getColor(pi[x])
                 x += 1
         self.out.set_matrix(pixelBoard)
         self.out.submit_all()
@@ -51,60 +76,7 @@ class Tetrix(BasePlugin):
         
 
     def input(self, inp):
-        bla = int(inp.get("Wert"))
+        pass
     
     def get_html(self):
-        return """<h1>Tetryx_6.9</h1>
-        <table border="1" align="left">
-     <tr>
-      <th onclick="ccw()">ccw_move</th>
-      <th onclick="t()">test</th>
-      <th onclick="cw()">cw_move</th>
-     </tr><tr>
-      <td onclick="l()">l_move</td>
-      <td onclick="d()">d_move</td>
-      <td onclick="r()">r_move</td>
-     </tr>
-    </table>
-    <script>
-    document.addEventListener('keydown', (event) => {
-        var name = event.key;
-        var code = event.code;
-            if (name== "a") l();
-            if (name== "d") r();
-            if (name== "s") d();
-            if (name== "ArrowLeft") ccw();
-            if (name== "ArrowRight") cw();
-    }, false);
-    
-    function t() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=6", false );
-        xmlHttp.send( null );
-    }
-    function r() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=1", false );
-        xmlHttp.send( null );
-    }
-    function l() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=2", false );
-        xmlHttp.send( null );
-    }
-    function d() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=3", false );
-        xmlHttp.send( null );
-    }
-    function cw() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=4", false );
-        xmlHttp.send( null );
-    }
-    function ccw() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/plugin/{{ start_id }}/input?Wert=5", false );
-        xmlHttp.send( null );
-    }
-    </script>"""
+        return ""
