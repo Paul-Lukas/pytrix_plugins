@@ -101,7 +101,6 @@ class FlappyBird(BasePlugin):
                 self.game[1][next_position] = 1
 
 
-
     def hitdetection(self, case) -> int:
         hitdetected = 0
         death_position = 0
@@ -181,7 +180,8 @@ class FlappyBird(BasePlugin):
         rgbTuple = {
             0: (0, 188, 255),  # Background: Light Blue
             1: (255, 0, 0),  # Player: Red
-            2: (0, 255, 34)  # Pipe: Green
+            2: (0, 255, 34),  # Pipe: Green
+            3: (204, 0, 204) # Startup
         }
         return rgbTuple.get(value, -1)
 
@@ -237,9 +237,77 @@ class FlappyBird(BasePlugin):
 
         self.out.set_matrix(tupleMatrix)
         self.out.submit_all()
-
+        
+    def startup(self):
+    		old = self.game
+    		
+    		one = [[0 for j in range(5)] for i in range(5)]
+        for i in range(5):
+            for j in range(5):
+                one[i][j] = 0
+        one[1][1] = 3
+        one[2][0] = 3
+        one[2][1] = 3
+        one[2][2] = 3
+        one[2][3] = 3
+        one[2][4] = 3
+        
+        two = [[0 for j in range(5)] for i in range(5)]
+        for i in range(5):
+            for j in range(5):
+                two[i][j] = 0
+        two[1][0] = 3
+        two[2][0] = 3
+        two[3][0] = 3
+        two[3][1] = 3
+        two[2][2] = 3
+        two[1][3] = 3
+        two[1][4] = 3
+        two[2][4] = 3
+        two[3][4] = 3
+        
+        three = [[0 for j in range(5)] for i in range(5)]
+        for i in range(5):
+            for j in range(5):
+                three[i][j] = 0
+        three[1][0] = 3
+        three[2][0] = 3
+        three[3][0] = 3
+        three[3][1] = 3
+        three[3][2] = 3
+        three[2][2] = 3
+        three[1][2] = 3
+        three[3][2] = 3
+        three[1][4] = 3
+        three[2][4] = 3
+        three[3][4] = 3
+        
+        start_point = (10,6)
+        for i in range(5):
+        	for j in range(5):
+        		self.game[start_point[1] + i][start_point[2] + j] = three[i][j]
+        self.translator()
+        sleep(0.3)
+        self.game = old
+        
+        for i in range(5):
+        	for j in range(5):
+        		self.game[start_point[1] + i][start_point[2] + j] = two[i][j]
+        self.translator()
+        sleep(0.3)
+        self.game = old
+        
+        for i in range(5):
+        	for j in range(5):
+        		self.game[start_point[1] + i][start_point[2] + j] = one[i][j]
+        self.translator()
+        sleep(0.3)
+        self.game = old
+        self.translator()
+                
 
     def clock(self):
+    		self.startup()
         while self.gameover == 0:
             self.checkPipes()
             #self.screensaver()
