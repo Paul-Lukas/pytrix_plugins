@@ -1233,14 +1233,16 @@ class Tetrix(BasePlugin):
         
             
     def run(self):
+        print("Hi")
         self.out.set_matrix(self.prev)
         self.out.submit_all()
-        
+        print("Hi2")
         self.game_start()
         self.game_refresh()
-        
+        print("Hi Final")
         self.mainLoop()
         print("\n\n\n"+str(self.game_lines)+"\n\n\n")
+        print("Bye")
         self.scorer()
 
     def input(self, inp):
