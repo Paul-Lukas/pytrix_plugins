@@ -410,7 +410,6 @@ class Tetrix(BasePlugin):
         if randomCheckVar:
             self.game_place_nextTetromino()
         else:
-            print("HIIIII")
             self.game_over()
             
     
@@ -1210,8 +1209,8 @@ class Tetrix(BasePlugin):
     def mainLoop(self):
         print("TESSSST")
         global tetromino_yPos
-        while True:
-            if self.game_run:
+        while (self.game_run):
+            if :
                 self.dMove("blub")
                 if self.dummyMode:
                     time.sleep(self.game_speed/2)
@@ -1219,10 +1218,6 @@ class Tetrix(BasePlugin):
                     time.sleep(self.game_speed/2)
                 else:
                     time.sleep(self.game_speed)
-            else:
-                print("OMG")
-        print(self.game_lines)
-        print("\n\n\n"+str(self.game_lines)+"\n\n\n")
     
     
     """
@@ -1243,13 +1238,10 @@ class Tetrix(BasePlugin):
         
             
     def run(self):
-        print("Hi")
         self.out.set_matrix(self.prev)
         self.out.submit_all()
-        print("Hi2")
         self.game_start()
         self.game_refresh()
-        print("Hi Final")
         self.mainLoop()
         print("\n\n\n"+str(self.game_lines)+"\n\n\n")
         print("Bye")
