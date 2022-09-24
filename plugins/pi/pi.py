@@ -7,7 +7,7 @@ class Tetrix(BasePlugin):
         self.pluginName = "Pi"
         self.version = "3.14"
         
-    def getColor(inp):
+    def getColor(self,inp):
         color = [bg for i in range(11)]
         
         color[1] = (246,206,55)
@@ -30,7 +30,7 @@ class Tetrix(BasePlugin):
         """
         return color[inp]
     
-    def main(num_Digits):
+    def main(self,num_Digits):
         n = 0
         Pi = 0
         getcontext().prec = num_Digits+2
