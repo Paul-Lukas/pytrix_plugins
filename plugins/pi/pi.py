@@ -43,7 +43,7 @@ class Tetrix(BasePlugin):
         pixelBoard = [[0 for i in range(30)] for j in range(15)]
         for a in range(30):
             for b in range(15):
-                pixelboard[a][b] = pi[x]
+                pixelBoard[a][b] = pi[x]
                 x += 1
         self.out.set_matrix(pixelBoard)
         self.out.submit_all()
